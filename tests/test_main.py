@@ -1,6 +1,7 @@
 import time
 
 from selenium.webdriver.common.by import By
+#from conftest import *
 
 from locators.locators import  TITLE, ADDITEM_BUTTON, ITEMINCART_FIELD, CARDS
 # from pages.login_page import LoginPage
