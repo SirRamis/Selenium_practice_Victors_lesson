@@ -3,7 +3,9 @@ import time
 from selenium.webdriver.common.by import By
 #from conftest import *
 
-from locators.locators import  TITLE, ADDITEM_BUTTON, ITEMINCART_FIELD, CARDS
+from practice.locators.locators import ADDITEM_BUTTON, ITEMINCART_FIELD
+
+
 # from pages.login_page import LoginPage
 # from src.urls import Urls
 
@@ -25,13 +27,21 @@ from locators.locators import  TITLE, ADDITEM_BUTTON, ITEMINCART_FIELD, CARDS
     #     cards = driver.find_elements(*CARDS)
     #     assert len(cards) == 6
     #     time.sleep(4)
+# def test_registration(driver1):
+#     driver1.get(url=urls.reg_url)
+from conftest import login, chrome, login1
 
-
-def test_add_item(driver):
-    driver.find_element(*ADDITEM_BUTTON).click()
-    actual_text = driver.find_element(*ITEMINCART_FIELD).text
+from src.data import LOGIN, PASSWORD
+def test_add_item(chrome, login1):
+    chrome.find_element(*ADDITEM_BUTTON).click()
+    actual_text = chrome.find_element(*ITEMINCART_FIELD).text
     assert actual_text
 
+# def test_add_item(chrome):
+#     login(chrome, "Artem", PASSWORD)
+#     chrome.find_element(*ADDITEM_BUTTON).click()
+#     actual_text = chrome.find_element(*ITEMINCART_FIELD).text
+#     assert actual_text
 
 def test4_deleit_item(driver):
     driver.find_element(By.XPATH, '//*[@id="add-to-cart-sauce-labs-backpack"]').click()
