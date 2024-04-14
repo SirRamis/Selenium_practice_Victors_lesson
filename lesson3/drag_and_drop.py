@@ -17,13 +17,13 @@ driver.get("https://jqueryui.com/droppable/")
 time.sleep(3)
 
 # Переключаемся на iframe, где расположен перетаскиваемый объект
-iframe = driver.find_element(By.XPATH, '//*[@id="content"]/iframe')  # Исправляем здесь
+iframe = driver.find_element(By.XPATH, '//*[@id="content"]/iframe')
 driver.switch_to.frame(iframe)
 time.sleep(3)
 
 # Находим элементы, которые нужно перетащить и куда их нужно перетащить
-source_element = driver.find_element(By.XPATH, '//*[@id="draggable"]/p')  # Исправляем здесь
-target_element = driver.find_element(By.XPATH, '//*[@id="droppable"]')  # Исправляем здесь
+source_element = driver.find_element(By.XPATH, '//*[@id="draggable"]/p')
+target_element = driver.find_element(By.XPATH, '//*[@id="droppable"]')
 time.sleep(3)
 
 # Создаем экземпляр ActionChains и выполняем перетаскивание

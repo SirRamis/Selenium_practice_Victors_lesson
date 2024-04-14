@@ -1,5 +1,3 @@
-from webbrowser import Chrome
-
 import pytest
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
@@ -7,7 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 
 from practice.src import urls
-from src.data import LOGIN, PASSWORD
+from practice.src.data import LOGIN, PASSWORD
 from practice.locators.locators import USERNAME_FIELD, PASSWORD_FIELD, LOGIN_BUTTON
 
 

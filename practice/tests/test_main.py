@@ -6,32 +6,30 @@ from selenium.webdriver.common.by import By
 from practice.locators.locators import ADDITEM_BUTTON, ITEMINCART_FIELD
 
 
-# from pages.login_page import LoginPage
-# from src.urls import Urls
+from pages.login_page import LoginPage
+from src.urls import Urls
 
 
-# class TestLogin:
-#     url = Urls()
-#
-#     def test_login(self, driver):
-#         page = LoginPage(driver, self.url.base_url)
-#         page.open()
-#         time.sleep(4)
-    #     actual_text = driver.find_element(*TITLE).text
-    #     expected_text = "Products"
-    #     assert actual_text == expected_text
-    #     time.sleep(4)
-    #
-    #
-    # def test_login1(driver):
-    #     cards = driver.find_elements(*CARDS)
-    #     assert len(cards) == 6
-    #     time.sleep(4)
+class TestLogin:
+    url = Urls()
+
+    def test_login(self, driver):
+        page = LoginPage(driver, self.url.base_url)
+        page.open()
+        time.sleep(4)
+        actual_text = driver.find_element(*TITLE).text
+        expected_text = "Products"
+        assert actual_text == expected_text
+        time.sleep(4)
+
+
+    def test_login1(driver):
+        cards = driver.find_elements(*CARDS)
+        assert len(cards) == 6
+        time.sleep(4)
 # def test_registration(driver1):
 #     driver1.get(url=urls.reg_url)
-from conftest import login, chrome, login1
 
-from src.data import LOGIN, PASSWORD
 def test_add_item(chrome, login1):
     chrome.find_element(*ADDITEM_BUTTON).click()
     actual_text = chrome.find_element(*ITEMINCART_FIELD).text
