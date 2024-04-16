@@ -25,12 +25,59 @@ def fill():
     driver.find_element(*email).send_keys('abc@abc.com')
     driver.find_element(*button).click()
     print(driver.find_element(By.ID, 'result').text)
-    #input()
     time.sleep(5)
 
-fill()
+#fill()
 
 def num_element():
     driver = webdriver.Chrome()
     driver.get(url1)
-    for i in driver.find_element(By.ID, 'href')
+
+    driver.find_element(By.LINK_TEXT, '16243162441624').click()
+    print(driver.find_element(By.ID, 'result').text)
+    time.sleep(3)
+
+#num_element()
+
+
+# driver = webdriver.Chrome()
+# driver.get('https://parsinger.ru/selenium/3/3.html')
+#
+# # Найдем все элементы с классом 'text'
+# elements = driver.find_elements(By.CLASS_NAME, 'text')
+# print(*elements)
+# # Пройдемся по всем найденным элементам и выведем их содержимое
+# for element in elements:
+#     # Получаем текст элемента
+#     text = element.text
+#     # Разделяем текст на отдельные числа и преобразуем их в целые числа
+#     numbers = [int(num) for num in text.split()]
+#     # Выводим сумму чисел
+#     print(numbers)
+#     #print("Сумма чисел:", (numbers))
+#
+#     a = driver.find_element(By.CLASS_NAME, 'text').text
+#     n = [int(num) for num in a.split()]
+#     print(sum(n))
+def suum2():
+    driver = webdriver.Chrome()
+    driver.get('https://parsinger.ru/selenium/3/3.html')
+    p_elements = driver.find_elements(By.XPATH, "//div[@class='text']")
+
+    total_sum = 0
+
+    for p_element in p_elements:
+        text = p_element.text
+        numbers = [int(num) for num in text.split()]
+        total_sum += sum(numbers)
+    print("Общая сумма чисел из всех элементов:", total_sum)
+
+def suum3():
+    driver = webdriver.Chrome()
+    driver.get('https://parsinger.ru/selenium/3/3.html')
+    numbers = driver.find_elements(By.TAG_NAME, "p")
+    res = 0
+    for number in numbers:
+        n = int(number.text)
+        res += n
+    print(res)
