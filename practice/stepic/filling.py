@@ -81,3 +81,15 @@ def suum3():
         n = int(number.text)
         res += n
     print(res)
+#suum3()
+def suum4():
+    driver = webdriver.Chrome()
+    driver.get('https://parsinger.ru/selenium/3/3.html')
+    numbers = driver.find_elements(By.XPATH, "//div[@class='text']/p[2]")
+    res = 0
+    for number in numbers:
+        n = int(number.text)
+        res += n
+    print(res)
+#suum4()
+
