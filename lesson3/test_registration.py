@@ -1,5 +1,5 @@
 import time
-
+import allure
 from selenium.webdriver.chrome import webdriver
 from selenium.webdriver.common.by import By
 
@@ -15,12 +15,22 @@ AGREE = ('xpath', '//*[@id="agree"]')
 REG_BUTTON = ("xpath", '//*[@id="register"]')
 MESSAGE = ('xpath', '//*[@id="successMessage"]')
 
-
+@allure.title('test text')
+@allure.description('проверяет текст')
+@allure.severity(allure.severity_level.BLOCKER)
 def test1_actual_text(chrome, wait):
+    """
+    Это через дроп стрингу
+    :param chrome:
+    :param wait:
+    :return:
+    """
     chrome.get(urls.Urls.reg_url)
     actual_text = chrome.find_element(*HEADER_h1).text
     assert actual_text == 'Практика с ожиданиями в Selenium'
-
+@allure.title('test2 text')
+@allure.description('проверяет текст2')
+@allure.severity(allure.severity_level.BLOCKER)
 def test2_wait_elemet_start_test(chrome, wait):
     chrome.get(urls.Urls.reg_url)
     visible_after_button = wait.until(EC.element_to_be_clickable((START_TEST_BUTTON)))

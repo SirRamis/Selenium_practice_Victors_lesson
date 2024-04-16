@@ -16,4 +16,4 @@ def test_email_format(fake_email):
 
     # Проверка, что email не пустой
     assert len(fake_email) > 0
-
+    print(fake_email)
