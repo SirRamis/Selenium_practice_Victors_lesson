@@ -93,3 +93,13 @@ def suum4():
     print(res)
 #suum4()
 
+def checkbox():
+    driver = webdriver.Chrome()
+    driver.get('https://parsinger.ru/selenium/4/4.html')
+    checks = driver.find_elements(By.XPATH, "/html/body/div[1]/div[1]/input")
+    for check in checks:
+        check.click()
+    driver.find_element(By.XPATH, '/html/body/div[1]/div[2]/input').click()
+    print(driver.find_element(By.ID, "result").text)
+#checkbox()
+
