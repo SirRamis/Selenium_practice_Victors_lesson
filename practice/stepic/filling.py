@@ -130,4 +130,65 @@ def check_val():
             i.click()
     btn.click()
     print(driver.find_element(By.ID, "result").text)
-check_val()
+#check_val()
+
+def ch_list():
+    driver = webdriver.Chrome()
+    driver.get('https://parsinger.ru/selenium/7/7.html')
+    q = driver.find_elements(By.TAG_NAME, 'option')
+    btn = (By.XPATH, '//*[@id="input_result"]')
+    btn1 = (By.XPATH, '//*[@id="sendbutton"]')
+
+    t = 0
+    for i in q:
+        a = int(i.text)
+        t += a
+    print(t)
+    driver.find_element(*btn).send_keys(t)
+    time.sleep(3)
+    driver.find_element(*btn1).click()
+    time.sleep(3)
+    print(driver.find_element(By.ID, "result").text)
+
+#ch_list()
+
+def ch_list3():
+    driver = webdriver.Chrome()
+    driver.get('https://parsinger.ru/selenium/6/6.html')
+    arg = (12434107696 * 3 * 2) + 1
+    print(arg)
+    dropdown = driver.find_element(By.ID, 'selectId') # Найти выпадающий список
+    dropdown.click()  # Нажать на выпадающий список, чтобы отобразить опции
+    time.sleep(3)
+    options = driver.find_elements(By.TAG_NAME, 'option') # Найти все опции в выпадающем списке
+    for option in options: # Пройтись по всем опциям и найти нужную
+        if option.text == str(arg):  # Проверяем, соответствует ли текст опции значению arg
+            option.click()  # Кликаем на найденную опцию
+            time.sleep(3)
+            break  # Прерываем цикл, так как нужная опция уже найдена
+    send_button = driver.find_element(By.ID, 'sendbutton') # Найти кнопку "Отправить" и кликнуть на нее
+    send_button.click()
+    time.sleep(3)
+    print(driver.find_element(By.ID, "result").text)
+#ch_list3()
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+# Создание объекта ChromeOptions для дополнительных настроек браузера
+options_chrome = webdriver.ChromeOptions()
+
+# Добавление аргумента '--headless' для запуска браузера в фоновом режиме
+options_chrome.add_argument('--headless')
+
+# Инициализация драйвера Chrome с указанными опциями
+# Использование менеджера контекста 'with' для автоматического закрытия браузера после выполнения кода
+with webdriver.Chrome(options=options_chrome) as browser:
+    url = 'https://stepik.org/course/104774'
+    browser.get(url)
+
+    # Ищем элемент по тегу 'a' (ссылку)
+    a = browser.find_element(By.TAG_NAME, 'a')
+
+    # Выводим атрибут 'href' найденного элемента (URL ссылки)
+    print(a.get_attribute('href'))
