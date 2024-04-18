@@ -174,6 +174,7 @@ def ch_list3():
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from time import time
 
 # Создание объекта ChromeOptions для дополнительных настроек браузера
 options_chrome = webdriver.ChromeOptions()

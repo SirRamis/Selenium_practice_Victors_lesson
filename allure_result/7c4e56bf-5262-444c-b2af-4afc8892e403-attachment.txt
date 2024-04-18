@@ -1,0 +1,3 @@
+Ошибка при загрузке изображения: [Errno 22] Invalid argument: "C:\\Users\\Ramis\\PycharmProjects\\Selenium_practic_Victor's_lesson\\https:\\the-internet.herokuapp.com\\img\\avatar-blank.jpg"
+Broken image found: https://the-internet.herokuapp.com/asdf.jpg
+Broken image found: https://the-internet.herokuapp.com/hjkl.jpg
