@@ -1,4 +1,5 @@
 import time
+from pprint import pprint
 
 from selenium.webdriver.common.by import By
 from selenium import webdriver
@@ -46,3 +47,17 @@ def met_5_6_3():
     url = 'https://parsinger.ru/methods/3/index.html'
     driver = webdriver.Chrome()
     driver.get(url)
+    cookies = driver.get_cookies()
+    #pprint(cookies)
+    q = []
+    for cookie in cookies:
+        a = cookie['name']
+        b = a.split('_')
+        c = int(b[2])
+        if c % 2 == 0:
+            q.append()
+
+    print(b)
+    print(q)
+
+met_5_6_3()
