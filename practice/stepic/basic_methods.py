@@ -28,8 +28,6 @@ def met_5_6_2():
     driver = webdriver.Chrome()
     url = 'https://parsinger.ru/selenium/5.5/1/1.html'
     driver.get(url)
-    #numbers = (By.XPATH, '//*[@id="textfields-container"]/input')
-    #el_numbers = driver.find_element(By.XPATH, '//*[@id="textfields-container"]/input'[3])
     el_numbers = driver.find_elements(By.XPATH, '//*[@id="textfields-container"]/input')
     for i in el_numbers:
         i.get_attribute('value')
@@ -41,7 +39,6 @@ def met_5_6_2():
     alert_text = alert.text
     print(alert_text)
     driver.quit()
-
 #met_5_6_2()
 def met_5_6_3():
     url = 'https://parsinger.ru/methods/3/index.html'
@@ -51,13 +48,29 @@ def met_5_6_3():
     #pprint(cookies)
     q = []
     for cookie in cookies:
-        a = cookie['name']
-        b = a.split('_')
+        name = cookie['name']
+        value = cookie['value']
+        b = name.split('_')
         c = int(b[2])
         if c % 2 == 0:
-            q.append()
-
-    print(b)
-    print(q)
-
-met_5_6_3()
+            q.append(int(cookie['value']))
+    print(sum(q))
+#met_5_6_3()
+def met_5_6_4():
+    url = 'https://parsinger.ru/selenium/5.5/2/1.html'
+    driver = webdriver.Chrome()
+    driver.get(url)
+    el_numbers = driver.find_elements(By.XPATH, '//*[@id="textfields-container"]/input')
+    for i in el_numbers:
+        a = i.get_attribute('disabled')
+        if a != 'true':
+            i.clear()
+    time.sleep(3)
+    driver.find_element(By.XPATH, '//*[@id="checkButton"]').click()
+    alert = driver.switch_to.alert
+    alert_text = alert.text
+    print(alert_text)
+    alert.accept()
+    time.sleep(3)
+    driver.quit()
+met_5_6_4()
