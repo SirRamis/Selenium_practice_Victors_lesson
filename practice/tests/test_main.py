@@ -3,8 +3,7 @@ import time
 from selenium.webdriver.common.by import By
 #from conftest import *
 
-from practice.locators.locators import ADDITEM_BUTTON, ITEMINCART_FIELD
-
+from practice.locators.locators import ADDITEM_BUTTON, ITEMINCART_FIELD, TITLE
 
 from pages.login_page import LoginPage
 from src.urls import Urls
