@@ -116,7 +116,7 @@ def test_check_image_integrity(chrome):
             if width == 0:
                 print(f"Broken image found: {src}")
 
-
+#tytrrt
 def test_color(chrome):
     chrome.get("https://www.selenium.dev/selenium/web/colorPage.html")
     cssValue = chrome.find_element(By.ID, "namedColor").value_of_css_property('background-color')
