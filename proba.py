@@ -1,4 +1,3 @@
-with open('ph.txt', 'r') as ph:
-    ph_w = ph.readlines()
+ph_w = open('ph.txt', 'r').readlines()
 
 print(ph_w)

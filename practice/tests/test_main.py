@@ -1,7 +1,7 @@
 import time
 
 from selenium.webdriver.common.by import By
-#from conftest import *
+from conftest import *
 
 from practice.locators.locators import ADDITEM_BUTTON, ITEMINCART_FIELD, TITLE
 
